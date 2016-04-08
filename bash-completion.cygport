@@ -1,14 +1,24 @@
 NAME="bash-completion"
-VERSION=2.1
-RELEASE=2
+VERSION=2.3
+RELEASE=1
 CATEGORY="Shells"
 SUMMARY="Command auto-completion for Bash shell"
 DESCRIPTION="bash-completion is a collection of shell functions that take
 advantage of the programmable completion feature of bash."
 HOMEPAGE="http://bash-completion.alioth.debian.org/"
-SRC_URI="http://bash-completion.alioth.debian.org/files/bash-completion-${VERSION}.tar.bz2"
-PATCH_URI="
-	http://pkgs.fedoraproject.org/cgit/bash-completion.git/plain/bash-completion-2.1-util-linux-223.patch
-"
+SRC_URI="https://github.com/scop/bash-completion/releases/download/${VERSION}/bash-completion-${VERSION}.tar.xz"
 
 ARCH=noarch
+
+PKG_NAMES="${NAME} ${NAME}-devel"
+bash_completion_REQUIRES="bash"
+bash_completion_CONTENTS="
+	etc/profile.d/bash_completion.sh
+	usr/share/${NAME}
+	usr/share/doc/${NAME}
+"
+bash_completion_devel_REQUIRES=${NAME}
+bash_completion_devel_CONTENTS="
+	usr/share/cmake/${NAME}
+	usr/share/pkgconfig/${NAME}.pc
+"
