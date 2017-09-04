@@ -1,5 +1,5 @@
 NAME="bash-completion"
-VERSION=2.4
+VERSION=2.7
 RELEASE=1
 CATEGORY="Shells"
 SUMMARY="Command auto-completion for Bash shell"
